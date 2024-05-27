@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4; /* Light grey background for slight contrast */
+}
+
+header, footer {
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.main-content {
+    border: 1px solid #ccc;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    border-radius: 5px;
+    background-color: #ffffff; /* White background for the content area */
+}
+
+.menu-item {
+    margin-bottom: 20px; /* Adjust the bottom margin as needed */
+    padding: 10px; /* Optional: Adds padding inside each meal's container */
+    border: 1px solid #ccc; /* Optional: Adds a border around each meal for better visual separation */
+    border-radius: 5px; /* Optional: Rounds the corners of the border */
+    background-color: #f9f9f9; /* Optional: Adds a background color to each meal entry */
+}
+
+.item-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.item-name .dots {
+    flex-grow: 1; /* Makes the dots span the space between text and time */
+    border-bottom: 2px dotted #ccc; /* Creates a dotted line */
+    margin: 0 10px;
+}
+
+.item-description {
+    font-style: italic; /* This makes the text italic */
+    margin-top: 5px; /* Adds a little space between the name and description */
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f8f9fa;
+    position: relative;
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+  }
+
+  .dots {
+    flex-grow: 1;
+    border-bottom: 2px dotted #ccc;
+    margin: 0 10px;
+}
+
+.missing {
+    color: red;
+}
+
+.greyed-out {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.food-name {
+    font-size: 1.5em; /* Adjust the size as needed */
+    font-weight: bold;
+    margin-right: 10px; /* Ensures spacing before the dotted line */
+}
+
+

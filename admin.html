@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="loginForm" style="text-align: center; margin-top: 50px;">
+
+        <h2>Login to Admin</h2>
+
+        <input type="text" id="username" placeholder="Username"><br><br>
+
+        <input type="password" id="password" placeholder="Password"><br><br>
+
+        <button onclick="login()">Login</button>
+
+    </div>
+
+    <div id="adminPanel" style="display:none;">
+    <header>
+        <h1>Admin Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="breakfast.html">Breakfast</a></li>
+                <li><a href="lunch.html">Lunch</a></li>
+                <li><a href="dinner.html">Dinner</a></li>
+                <li><a href="dessert.html">Dessert</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content" style="display: flex; justify-content: space-between;">
+        <div style="width: 45%;">
+            <form id="menuForm">
+                <label for="mealType">Choose a meal type:</label>
+                <select id="mealType" name="mealType">
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="dessert">Dessert</option>
+                </select>
+                <br>
+                <label for="itemName">Item Name:</label>
+                <input type="text" id="itemName" name="itemName" required>
+                <br>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+                <br>
+                <label for="time">Time to prepare (mins):</label>
+                <input type="text" id="time" name="time" required>
+                <br>
+                <label for="ingredients">Ingredients (comma-separated):</label>
+                <input type="text" id="ingredients" name="ingredients" required>
+                <br>
+                <button type="button" onclick="addItem()">Add Item</button>
+                <button type="button" id="saveButton" style="display:none;" onclick="saveEdit()">Save Changes</button>
+            </form>
+            <div id="itemList"></div>
+        </div>
+        <div style="width: 45%;">
+            <h2>Ingredient Management</h2>
+            <form id="ingredientForm">
+                <label for="newIngredient">Add New Ingredient:</label>
+                <input type="text" id="newIngredient" name="newIngredient" required>
+                <button type="button" onclick="addIngredient()">Add Ingredient</button>
+            </form>
+            <div id="ingredientList"></div>
+        </div>
+    </main>
+    <script src="admin.js"></script>
+    <script>
+
+        function login() {
+
+            var username = document.getElementById('username').value;
+
+            var password = document.getElementById('password').value;
+
+            if (username === 'Bonzai196' && password === 'Apples296') {
+
+                document.getElementById('loginForm').style.display = 'none';
+
+                document.getElementById('adminPanel').style.display = 'block';
+
+            } else {
+
+                alert('Incorrect username or password');
+
+            }
+
+        }
+
+    </script>
+    <footer>
+        <p>Admin Area</p>
+    </footer>
+</body>
+</html>

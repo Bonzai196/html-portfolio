@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakfast Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Breakfast Menu</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lunch.html">Lunch</a></li>
+                <li><a href="dinner.html">Dinner</a></li>
+                <li><a href="dessert.html">Dessert</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content" id="itemList">
+        <!-- Items will be loaded here -->
+    </main>
+    <script>
+        let ingredients = JSON.parse(localStorage.getItem('ingredients')) || [];
+        let menuDatabase = JSON.parse(localStorage.getItem('menuData')) || {
+            breakfast: [],
+            lunch: [],
+            dinner: [],
+            dessert: []
+        };
+
+        function displayItems() {
+            const breakfastItems = menuDatabase.breakfast;
+            const listContainer = document.getElementById('itemList');
+            listContainer.innerHTML = ''; // Clear existing items
+
+            breakfastItems.forEach(item => {
+                const missingIngredients = item.ingredients.split(', ').filter(ing => !ingredients.includes(ing));
+                const itemElement = document.createElement('div');
+                itemElement.className = missingIngredients.length ? 'menu-item greyed-out' : 'menu-item';
+
+                itemElement.innerHTML = `
+                    <div style="display: flex; align-items: center;">
+                        <span class="food-name">${item.name}</span>
+                        <span style="flex-grow: 1; border-bottom: 1px dotted #ccc; margin: 0 10px;"></span>
+                        <span>Time to make: ${item.time} mins</span>
+                    </div>
+                    <p>${item.description}</p>
+                `;
+
+                if (missingIngredients.length) {
+                    const missingElement = document.createElement('p');
+                    missingElement.className = 'missing';
+                    missingElement.textContent = 'Missing: ' + missingIngredients.join(', ');
+                    itemElement.appendChild(missingElement);
+                }
+                listContainer.appendChild(itemElement);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', displayItems);
+    </script>
+    <footer>
+        <p>Thank you for visiting our Breakfast Menu!</p>
+    </footer>
+</body>
+</html>
